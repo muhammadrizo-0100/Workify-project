@@ -1,0 +1,350 @@
+.talents-container {
+    min-height: 100vh;
+    background-color: #f9fafb;
+    padding: 28px 0 64px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+}
+
+.talents-loading,
+.talents-error,
+.no-talents {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+    text-align: center;
+}
+
+.talents-loading p {
+    font-size: 20px;
+    color: #163D5C;
+}
+
+.talents-error p {
+    font-size: 20px;
+    color: #dc2626;
+}
+
+.talents-header {
+    max-width: 1200px;
+    margin: 0 auto 48px;
+    padding: 0 20px;
+}
+
+.header-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 32px;
+    margin-right: 1020px;
+}
+
+.header-title {
+    font-size: 25px;
+    font-weight: 500;
+    color: #404040;
+    margin: 0;
+}
+
+.hr{
+    width: 1120px;
+    position: relative;
+    bottom: 35px;
+    color: #525356;
+    left: 200px;
+}
+
+.header-count {
+    color: #404040;
+    font-size: 28px;
+    font-weight: 500;
+    padding: 8px 24px;
+}
+
+.talents-list {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+.talent-card {
+    width: 100%;
+    max-width: 1120px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e5e7eb;
+    min-height: 340px;
+    transition: box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.talent-card:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.card-content {
+    display: flex;
+    padding: 32px;
+    height: 100%;
+    min-height: 340px;
+}
+
+.card-left {
+    flex-shrink: 0;
+    margin-right: 32px;
+}
+
+.card-right {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.talent-avatar {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #dbeafe 0%, #f3f4f6 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    font-weight: 700;
+    color: #163D5C;
+    border: 4px solid white;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.avatar-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.avatar-initials {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.talent-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 24px;
+}
+
+.info-left {
+    flex-grow: 1;
+}
+
+.info-right {
+    text-align: right;
+    margin-left: 20px;
+}
+
+.talent-name {
+    font-size: 28px;
+    font-weight: 700;
+    color: #163D5C;
+    margin: 0 0 4px 0;
+}
+
+.talent-role {
+    font-size: 18px;
+    font-weight: 600;
+    color: #374151;
+    margin: 0;
+}
+
+.talent-price {
+    font-size: 32px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 8px;
+}
+
+.talent-location {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 6px;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.location-icon {
+    width: 16px;
+    height: 16px;
+}
+
+.talent-description {
+    margin-bottom: 24px;
+    flex-grow: 1;
+}
+
+.talent-description p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #4b5563;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.talent-skills {
+    margin-bottom: 24px;
+}
+
+.skills-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #111827;
+    margin: 0 0 12px 0;
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.skill-tag {
+    background: #f3f4f6;
+    color: #374151;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 9999px;
+    border: 1px solid #e5e7eb;
+}
+
+.talent-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: auto;
+}
+
+.btn-view-profile,
+.btn-resume {
+    padding: 10px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    text-align: center;
+}
+
+.btn-view-profile {
+    background: #163D5C;
+    color: white;
+    border: none;
+}
+
+.btn-view-profile:hover {
+    background: #0f2e48;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(22, 61, 92, 0.3);
+}
+
+.btn-resume {
+    background: transparent;
+    color: #163D5C;
+    border: 1px solid #163D5C;
+}
+
+.btn-resume:hover {
+    background: #163D5C;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(22, 61, 92, 0.3);
+}
+
+.no-talents p {
+    font-size: 20px;
+    color: #6b7280;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .talents-container {
+        padding: 32px 0 48px;
+    }
+
+    .header-main {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+    }
+
+    .header-title {
+        font-size: 36px;
+    }
+
+    .header-count {
+        font-size: 24px;
+        padding: 6px 20px;
+    }
+
+    .talents-list {
+        padding: 0 16px;
+    }
+
+    .card-content {
+        flex-direction: column;
+        padding: 24px;
+    }
+
+    .card-left {
+        margin-right: 0;
+        margin-bottom: 24px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .talent-avatar {
+        width: 80px;
+        height: 80px;
+        font-size: 28px;
+    }
+
+    .talent-info {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .info-right {
+        text-align: left;
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .talent-location {
+        justify-content: flex-start;
+    }
+
+    .talent-buttons {
+        justify-content: center;
+    }
+
+    .talent-name {
+        font-size: 24px;
+    }
+
+    .talent-price {
+        font-size: 28px;
+    }
+}
