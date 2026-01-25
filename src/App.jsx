@@ -7,26 +7,21 @@ import Jobs from './pages/Jobs';
 
 function App() {
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
-      <Header />
+    <>
+      <div className="min-h-screen flex flex-col bg-gray-50">
+        <Header />
 
-      <main className="flex-grow">
-        <Routes>
-        <Route path="/" element="*" />
-          <Route path="/talents" element={<Talents />} />
-          <Route path="/jobs" element={<Jobs />} />
-
-          {/* kelajakda qo'shish mumkin bo'lgan sahifalar */}
-          {/* <Route path="/signin" element={<SignIn />} /> */}
-          {/* <Route path="/signup" element={<SignUp />} /> */}
-          {/* <Route path="*" element={<NotFound />} /> */}
-        </Routes>
-      </main>
-
-      {/* <Footer /> */}
-    </div>
-  );
-      <Footer />
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" />
+            <Route path="/talents" element={<Talents />} />
+            <Route path="/jobs" element={<Jobs />} />
+            {/* <Route path="/signin" element={<SignIn />} /> */}
+            {/* <Route path="/signup" element={<SignUp />} /> */}
+          </Routes>
+        </main>
+        <Footer />
+      </div>
     </>
   )
 }
