@@ -14,12 +14,12 @@ function Header() {
 
         {/* NAV */}
         <nav className="w-[206px] h-[22px] flex items-center justify-between">
-          <Link to="/talents" className="flex items-center gap-[4px] text-[#C2C2C2] font-semibold text-[20px] font-['Mulish']">
+          <Link to="/talents" className="flex items-center gap-[4px] text-[#C2C2C2] font-semibold text-[20px] font-['Mulish'] hover:text-[#163D5C]">
             <CiUser />
             Talents
           </Link>
 
-          <Link to="/jobs" className="flex items-center gap-[4px] text-[#C2C2C2] font-semibold text-[20px] font-['Mulish']">
+          <Link to="/jobs" className="flex items-center gap-[4px] text-[#C2C2C2] font-semibold text-[20px] font-['Mulish'] hover:text-[#163D5C]">
             <IoWalletOutline />
             Jobs
           </Link>
@@ -31,11 +31,11 @@ function Header() {
           {/* BUTTONS */}
           <div className="w-[320px] h-[50px] flex items-center justify-between">
             <button
-              className="w-[150px] h-[50px] border-2 border-[#163D5C] rounded-[10px] font-bold text-[20px] text-[#163D5C] hover:bg-[#163D5C] hover:text-white transition">
+              className="w-[150px] h-[50px] border-2 border-[#163D5C] rounded-[10px] font-bold text-[20px] text-[#163D5C] hover:bg-[#163D5C] hover:text-white transition cursor-pointer">
               Sign in
             </button>
 
-            <button className="w-[150px] h-[50px] border-2 border-[#163D5C] rounded-[10px] font-bold text-[20px] bg-[#163D5C] text-white hover:bg-transparent hover:text-[#163D5C] transition">
+            <button className="w-[150px] h-[50px] border-2 border-[#163D5C] rounded-[10px] font-bold text-[20px] bg-[#163D5C] text-white hover:bg-transparent hover:text-[#163D5C] transition cursor-pointer">
               Join Now
             </button>
           </div>
