@@ -34,31 +34,46 @@
 .header-main {
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin-bottom: 32px;
     margin-right: 1020px;
 }
 
 .header-title {
-    font-size: 25px;
+    font-size: 24px;
     font-weight: 500;
     color: #404040;
     margin: 0;
 }
 
-.hr{
+.hrrr {
+    margin-bottom: 20px;
+    color: gray;
+}
+
+.talent-text {
+    font-family: sans-serif;
+    font-weight: 550;
+    font-style: SemiBold;
+    font-size: 25px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #404040;
+}
+
+.hr {
     width: 1120px;
     position: relative;
-    bottom: 35px;
-    color: #525356;
+    bottom: 50px;
+    color: #a0a0a0;
     left: 200px;
 }
 
 .header-count {
     color: #404040;
-    font-size: 28px;
-    font-weight: 500;
+    font-size: 25px;
+    font-weight: bold;
     padding: 8px 24px;
+    position: relative;
+    top: 3px;
 }
 
 .talents-list {
@@ -97,6 +112,70 @@
 .card-left {
     flex-shrink: 0;
     margin-right: 32px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Avatar va ismni bir qatorda joylashtirish */
+.top-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    width: 100%;
+}
+
+.talent-avatar {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #dbeafe 0%, #f3f4f6 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    font-weight: 700;
+    color: #163D5C;
+    border: 4px solid white;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.avatar-name-container {
+    flex-grow: 1;
+    margin-left: 32px;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.talent-price-location {
+    text-align: right;
+    flex-shrink: 0;
+}
+
+.avatar-name-container {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Eski info-left ni olib tashlang yoki kamaytiring */
+.info-left {
+    display: none;
+    /* Yoki olib tashlang */
 }
 
 .card-right {
@@ -146,39 +225,57 @@
     flex-grow: 1;
 }
 
+/* YANGI: Ism va kasbni yonma-yon qilish */
+.name-role-container {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.talent-name {
+    font-family: sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #263238;
+}
+
+.talent-role {
+    font-family: sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #343C44;
+}
+
 .info-right {
     text-align: right;
     margin-left: 20px;
 }
 
-.talent-name {
-    font-size: 28px;
-    font-weight: 700;
-    color: #163D5C;
-    margin: 0 0 4px 0;
-}
-
-.talent-role {
-    font-size: 18px;
-    font-weight: 600;
-    color: #374151;
-    margin: 0;
-}
-
 .talent-price {
-    font-size: 32px;
+    font-family: sans-serif;
     font-weight: 700;
-    color: #111827;
-    margin-bottom: 8px;
+    font-size: 24px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #263238;
 }
 
 .talent-location {
     display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 6px;
-    color: #6b7280;
-    font-size: 14px;
+    gap: 4px;
+    font-family: sans-serif;
+    font-weight: 600;
+    font-style: SemiBold;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #343C44;
+    position: relative;
+    bottom: 15px;
 }
 
 .location-icon {
@@ -238,7 +335,7 @@
 
 .btn-view-profile,
 .btn-resume {
-    padding: 10px 24px;
+    padding: 12px 45px;
     font-size: 14px;
     font-weight: 600;
     border-radius: 8px;
@@ -324,6 +421,12 @@
     .talent-info {
         flex-direction: column;
         gap: 16px;
+    }
+
+    .name-role-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
     }
 
     .info-right {

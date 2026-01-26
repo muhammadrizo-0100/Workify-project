@@ -45,14 +45,14 @@ function Talents() {
         const firstName = talent.first_name || talent.firstName || '';
         const lastName = talent.last_name || talent.lastName || '';
 
-        // Kasb/Role
+        // Kasb/Role - rasmda "Designer" ko'rinadi
         let role = '';
         if (talent.specialty) {
             role = talent.specialty;
         } else if (talent.occupation) {
             role = talent.occupation;
         } else {
-            role = 'Freelancer';
+            role = 'Designer'; // Default qilib "Designer" qo'ydim
         }
 
         // Shahar va mamlakat
@@ -74,7 +74,7 @@ function Talents() {
 
         // Tavsif - about maydoni
         const description = talent.about ||
-            "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.";
+            "fact that a reader will be distracted by the readable content of a page when lo-sum is that it has a more-or-less normal distribution of letters, as opposed to usi";
 
         // Skills - skils maydoni JSON string formatda
         let skills = [];
@@ -85,7 +85,7 @@ function Talents() {
                 if (Array.isArray(parsedSkills)) {
                     skills = parsedSkills.map(item => {
                         if (item.skill && item.experience_years) {
-                            return `${item.skill} (${item.experience_years})`;
+                            return `${item.skill} (${item.experience_years} year${item.experience_years > 1 ? 's' : ''})`;
                         }
                         return item.skill || item;
                     }).filter(skill => skill);
@@ -93,13 +93,13 @@ function Talents() {
             } catch (e) {
                 console.error('Skills parse qilishda xato:', e);
                 // Agar parse qilishda xato bo'lsa, default skills
-                skills = ["Figma (2 years)", "Adobe Photoshop (1 year)", "Adobe XD (1 year)"];
+                skills = ["be Photoshop (1 year)", "Adobe Photoshop (1 year)", "Adobe XD (1 year)"];
             }
         }
 
         // Agar skills bo'sh bo'lsa, default qo'yish
         if (skills.length === 0) {
-            skills = ["Figma (2 years)", "Adobe Photoshop (1 year)", "Adobe XD (1 year)"];
+            skills = ["be Photoshop (1 year)", "Adobe Photoshop (1 year)", "Adobe XD (1 year)"];
         }
 
         // Rasm
@@ -118,18 +118,18 @@ function Talents() {
         };
     };
 
-    // Mock ma'lumotlar
+    // Mock ma'lumotlar - rasmdagiga o'xshash
     const getMockTalents = () => {
         return [
             {
                 id: 1,
-                firstName: "Abrorbek",
+                firstName: "",
                 lastName: "Ibrokhimov",
-                role: "UX / UI Designer",
-                city: "Ferghana, Uzbekistan",
+                role: "Designer",
+                city: "Tashkent, Uzbekistan",
                 price: 1250,
-                description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.",
-                skills: ["Figma (2 years)", "Adobe Photoshop (1 year)", "Adobe XD (1 year)"],
+                description: "fact that a reader will be distracted by the readable content of a page when lo-sum is that it has a more-or-less normal distribution of letters, as opposed to usi",
+                skills: ["be Photoshop (1 year)", "Adobe Photoshop (1 year)", "Adobe XD (1 year)"],
                 image: null
             }
         ];
@@ -180,8 +180,7 @@ function Talents() {
             <div className="talents-header">
                 <div className="header-main">
                     <div className="header-count">{formatTalentCount(talents.length)}.</div>
-
-                    <h1 className="header-title">talents</h1>
+                    <h1 className="header-title"><span className="talent-text">talents</span></h1>
                 </div>
             </div>
             <hr className='hr' />
@@ -190,7 +189,8 @@ function Talents() {
                     talents.map((talent) => (
                         <div key={talent.id} className="talent-card">
                             <div className="card-content">
-                                <div className="card-left">
+                                {/* Avatar va ism bir qatorda */}
+                                <div className="top-section">
                                     <div className="talent-avatar">
                                         {talent.image ? (
                                             <img
@@ -201,8 +201,8 @@ function Talents() {
                                                     e.target.style.display = 'none';
                                                     e.target.parentElement.innerHTML =
                                                         `<div class="avatar-initials">
-                                                            ${talent.firstName[0] || ''}${talent.lastName[0] || ''}
-                                                        </div>`;
+                                ${talent.firstName[0] || ''}${talent.lastName[0] || ''}
+                            </div>`;
                                                 }}
                                             />
                                         ) : (
@@ -211,30 +211,32 @@ function Talents() {
                                             </div>
                                         )}
                                     </div>
+
+                                    <div className="avatar-name-container">
+                                        <p className="talent-role">{talent.role}</p>
+                                        <h3 className="talent-name">
+                                            {talent.firstName} {talent.lastName}
+                                        </h3>
+                                    </div>
+
+                                    {/* Narx va manzil o'ng tomonda */}
+                                    <div className="talent-price-location">
+                                        <div className="talent-location">
+                                            <svg className="location-icon" viewBox="0 0 24 24" fill="currentColor">
+                                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                                            </svg>
+                                            <span>{talent.city}</span>
+                                        </div>
+                                        <div className="talent-price">{formatPrice(talent.price)}</div>
+                                    </div>
                                 </div>
 
                                 <div className="card-right">
-                                    <div className="talent-info">
-                                        <div className="info-left">
-                                            <h3 className="talent-name">
-                                                {talent.firstName} {talent.lastName}
-                                            </h3>
-                                            <p className="talent-role">{talent.role}</p>
-                                        </div>
-                                        <div className="info-right">
-                                            <div className="talent-price">{formatPrice(talent.price)}</div>
-                                            <div className="talent-location">
-                                                <svg className="location-icon" viewBox="0 0 24 24" fill="currentColor">
-                                                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
-                                                </svg>
-                                                <span>{talent.city}</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
                                     <div className="talent-description">
                                         <p>{talent.description}</p>
                                     </div>
+
+                                    <hr className='hrrr' />
 
                                     <div className="talent-skills">
                                         <h4 className="skills-title">Required skills</h4>
