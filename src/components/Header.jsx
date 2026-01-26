@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { CiUser } from "react-icons/ci";
 import { IoWalletOutline } from "react-icons/io5";
 
@@ -14,15 +14,17 @@ function Header() {
 
         {/* NAV */}
         <nav className="w-[206px] h-[22px] flex items-center justify-between">
-          <Link to="/talents" className="flex items-center gap-[4px] text-[#C2C2C2] font-semibold text-[20px] font-['Mulish'] hover:text-[#163D5C]">
+          <NavLink to="/talents" className={({ isActive }) => `flex items-center gap-[4px] font-semibold text-[20px] font-['Mulish']
+          ${isActive ? "text-[#163D5C]" : "text-[#C2C2C2]"} hover:text-[#163D5C] transition`}>
             <CiUser />
             Talents
-          </Link>
+          </NavLink>
 
-          <Link to="/jobs" className="flex items-center gap-[4px] text-[#C2C2C2] font-semibold text-[20px] font-['Mulish'] hover:text-[#163D5C]">
+          <NavLink to="/jobs" className={({ isActive }) => `flex items-center gap-[4px] font-semibold text-[20px] font-['Mulish']
+          ${isActive ? "text-[#163D5C]" : "text-[#C2C2C2]"} hover:text-[#163D5C] transition`}>
             <IoWalletOutline />
             Jobs
-          </Link>
+          </NavLink>
         </nav>
 
         {/* RIGHT SIDE */}
