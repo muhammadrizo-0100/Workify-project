@@ -2,7 +2,7 @@
 @import "tailwindcss";
 
 @layer base {
-    header {
+    body {
         font-family: 'Mulish', sans-serif;
     }
 }

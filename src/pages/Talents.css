@@ -2,6 +2,8 @@
     min-height: 100vh;
     background-color: #f9fafb;
     padding: 28px 0 64px;
+    overflow-x: hidden;
+    /* Yon tomonga chiqib ketgan narsalarni yashiradi */
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
 }
 
@@ -34,7 +36,10 @@
 .header-main {
     display: flex;
     align-items: center;
-    margin-right: 1020px;
+    /* margin-right: 1020px;  <-- Buni o'chirib tashla yoki izohga ol */
+    width: 100%;
+    /* 100% bo'lsin */
+    max-width: 1200px;
 }
 
 .header-title {
@@ -60,11 +65,14 @@
 }
 
 .hr {
-    width: 1120px;
+    width: 100%;
+    /* 1120px ni 100% ga o'zgartir */
+    max-width: 1120px;
     position: relative;
     bottom: 50px;
     color: #a0a0a0;
-    left: 200px;
+    margin: 0 auto;
+    /* left: 200px ni o'chirib, buni yoz */
 }
 
 .header-count {
@@ -377,77 +385,134 @@
 }
 
 @media (max-width: 768px) {
+
+    /* 1. Butun sahifadagi yon tomonga chiqib ketishni (scroll) bloklaymiz */
+    html,
+    body {
+        overflow-x: hidden;
+        position: relative;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
     .talents-container {
-        padding: 32px 0 48px;
+        width: 100% !important;
+        overflow-x: hidden;
+        padding: 20px 0;
     }
 
+    /* 2. Headerdagi oq joyni majburlab yo'qotamiz */
     .header-main {
-        flex-direction: column;
-        gap: 16px;
-        text-align: center;
-    }
-
-    .header-title {
-        font-size: 36px;
-    }
-
-    .header-count {
-        font-size: 24px;
-        padding: 6px 20px;
-    }
-
-    .talents-list {
-        padding: 0 16px;
-    }
-
-    .card-content {
-        flex-direction: column;
-        padding: 24px;
-    }
-
-    .card-left {
-        margin-right: 0;
-        margin-bottom: 24px;
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+        width: 100% !important;
         display: flex;
         justify-content: center;
+        padding: 0 15px;
+        box-sizing: border-box;
     }
 
-    .talent-avatar {
-        width: 80px;
-        height: 80px;
-        font-size: 28px;
+    /* 3. HR chizig'i - eng katta dushman. Uni butunlay o'chiramiz */
+    .hr {
+        display: none !important;
+        visibility: hidden;
+        width: 0 !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
     }
 
-    .talent-info {
+    /* 4. List va Kartalarni 100% ekranga moslaymiz */
+    .talents-list {
+        width: 100% !important;
+        padding: 0 12px !important;
+        margin: 0 !important;
+        box-sizing: border-box;
+        display: flex;
         flex-direction: column;
-        gap: 16px;
+        align-items: center;
     }
 
-    .name-role-container {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 4px;
+    .talent-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        /* Fixed 1120px ni yanchib tashlaydi */
+        min-height: auto !important;
+        margin: 0 0 20px 0 !important;
+        box-sizing: border-box;
     }
 
-    .info-right {
-        text-align: left;
-        margin-left: 0;
+    /* 5. Karta ichidagi kontent */
+    .card-content {
+        flex-direction: column !important;
+        padding: 20px !important;
         width: 100%;
+        box-sizing: border-box;
     }
 
-    .talent-location {
-        justify-content: flex-start;
-    }
-
-    .talent-buttons {
-        justify-content: center;
+    /* 6. Ism va Narxlarni silliq kichraytirish */
+    .talent-role {
+        font-size: clamp(18px, 5vw, 22px) !important;
+        line-height: 1.2;
     }
 
     .talent-name {
-        font-size: 24px;
+        font-size: clamp(14px, 4vw, 18px) !important;
+    }
+
+    /* 7. Narx va manzil qismi */
+    .info-right {
+        margin: 15px 0 0 0 !important;
+        width: 100% !important;
+        text-align: left !important;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .talent-location {
+        position: static !important;
+        /* bottom: 15px va left/right ni tozalaydi */
+        margin: 0 !important;
+        font-size: clamp(12px, 3vw, 15px);
     }
 
     .talent-price {
-        font-size: 28px;
+        font-size: clamp(20px, 6vw, 26px) !important;
+        margin: 0 !important;
+    }
+
+    /* 8. Tugmalar (Hatto 300px da ham sig'ishi uchun) */
+    .talent-buttons {
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 8px !important;
+        margin-top: 20px !important;
+        justify-content: space-between;
+    }
+
+    .btn-view-profile,
+    .btn-resume {
+        flex: 1 !important;
+        padding: 10px 4px !important;
+        font-size: clamp(10px, 2.8vw, 13px) !important;
+        min-width: 0 !important;
+        /* Siqilishga yo'l ochadi */
+        text-align: center;
+    }
+}
+
+/* 350px dan kichik o'ta kichik ekranlar uchun oxirgi zarba */
+@media (max-width: 350px) {
+    .talent-buttons {
+        flex-direction: column !important;
+    }
+
+    .info-right {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
     }
 }

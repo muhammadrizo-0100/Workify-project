@@ -1,30 +1,25 @@
 import './App.css'
 import { Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
+import Layout from "./components/Layout.jsx";
 import Talents from './pages/Talent';
 import Jobs from './pages/Jobs';
+import Home from './pages/Home';
 
 function App() {
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
-      <Header />
+    <Routes>
 
-      <main className="flex-grow">
-        <Routes>
-        <Route path="/" element="*" />
-          <Route path="/talents" element={<Talents />} />
-          <Route path="/jobs" element={<Jobs />} />
+      <Route path="/" element={<Home />} />
 
-          {/* kelajakda qo'shish mumkin bo'lgan sahifalar */}
-          {/* <Route path="/signin" element={<SignIn />} /> */}
-          {/* <Route path="/signup" element={<SignUp />} /> */}
-          {/* <Route path="*" element={<NotFound />} /> */}
-        </Routes>
-      </main>
+      <Route element={<Layout />}>
+        <Route path="/talents" element={<Talents />} />
+        <Route path="/jobs" element={<Jobs />} />
+      </Route>
+      {/* <Route path="/signin" element={<SignIn />} /> */}
+      {/* <Route path="/signup" element={<SignUp />} /> */}
 
-      {/* <Footer /> */}
-    </div>
-  );
+    </Routes>
+  )
 }
 
 export default App;
