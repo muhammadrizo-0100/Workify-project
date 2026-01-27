@@ -24,3 +24,30 @@
 .hover-shadow-2xl:hover {
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 }
+
+/* Qo'shimcha custom CSS */
+@layer components {
+    .custom-card {
+        max-width: 1120px;
+        border-radius: 16px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .text-balance {
+        text-wrap: balance;
+    }
+}
+
+
+
+/* index.css yoki App.css fayliga qo'shing */
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.font-sans {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
+}

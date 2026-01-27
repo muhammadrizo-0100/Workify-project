@@ -69,16 +69,16 @@ function Footer() {
                         </p>
 
                         <div className="flex gap-[20px] text-white text-[24px]">
-                            <a href="https://instagram.com" className="hover:text-slate-300 transition-transform hover:-translate-y-1">
+                            <a href="https://instagram.com" target="_blank" className="hover:text-slate-300 transition-transform hover:-translate-y-1">
                                 <BiLogoInstagramAlt />
                             </a>
-                            <a href="https://facebook.com" className="hover:text-slate-300 transition-transform hover:-translate-y-1">
+                            <a href="https://facebook.com" target="_blank" className="hover:text-slate-300 transition-transform hover:-translate-y-1">
                                 <FaFacebook />
                             </a>
-                            <a href="https://youtube.com" className="hover:text-slate-300 transition-transform hover:-translate-y-1">
+                            <a href="https://youtube.com" target="_blank" className="hover:text-slate-300 transition-transform hover:-translate-y-1">
                                 <FaYoutube />
                             </a>
-                            <a href="https://t.me" className="hover:text-slate-300 transition-transform hover:-translate-y-1">
+                            <a href="https://t.me" target="_blank" className="hover:text-slate-300 transition-transform hover:-translate-y-1">
                                 <FaTelegram />
                             </a>
                         </div>
