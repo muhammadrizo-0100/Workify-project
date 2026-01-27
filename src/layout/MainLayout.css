@@ -1,0 +1,15 @@
+/* MainLayout.css */
+.layout-wrapper {
+    display: flex;
+    min-height: 100vh;
+    background-color: E5E5E5;
+    padding: 50px 150px;
+    gap: 24px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.content-area {
+    flex: 1;
+    overflow-y: auto;
+}
