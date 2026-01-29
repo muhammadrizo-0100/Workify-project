@@ -5,6 +5,7 @@ import Talents from "./pages/Talent";
 import Jobs from "./pages/Jobs";
 import Home from "./pages/Home";
 import SignUpPage from "./pages/SignUpPage";
+import SignIn from "./pages/SignIn.jsx";
 
 function App() {
   return (
@@ -15,7 +16,9 @@ function App() {
         <Route path="/talents" element={<Talents />} />
         <Route path="/jobs" element={<Jobs />} />
         <Route path="/signup" element={<SignUpPage />} />
+        <Route path="/signin" element={<SignIn />} />
       </Route>
+
     </Routes>
   );
 }

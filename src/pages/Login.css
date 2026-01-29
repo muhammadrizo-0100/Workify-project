@@ -1,0 +1,291 @@
+/* Container */
+.login-container {
+    width: 100%;
+    height: 70rem;
+    /* 700px */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f3f4f6;
+}
+
+.login-container .login {
+    width: 50rem;
+    /* 500px */
+    height: 62.5rem;
+    /* 625px */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.login-container .login h2 {
+    color: #404040;
+    font-weight: 700;
+    font-size: 5rem;
+    /* 50px */
+}
+
+.login-container .login .login-details {
+    width: 50rem;
+    height: 51.4rem;
+    /* 514px */
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    border-radius: 2.5rem;
+    /* 25px */
+    box-shadow: 0 0.4rem 0.6rem rgba(0, 0, 0, 0.4);
+    /* 4px 6px */
+    background-color: #FFFFFF;
+}
+
+.login-container .login .login-details button {
+    width: 21.1rem;
+    /* 211px */
+    height: 5rem;
+    /* 50px */
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 2rem;
+    /* 20px */
+    border-radius: 1rem;
+    /* 10px */
+    cursor: pointer;
+    background-color: #163D5C;
+}
+
+.login-container .login .login-details button:hover {
+    color: #163D5C;
+    border: 0.2rem solid #163D5C;
+    /* 2px */
+    background-color: #FFFFFF;
+}
+
+/* Email container */
+.login-container .login .login-details .email-container {
+    width: 42rem;
+    /* 420px */
+    height: 10.6rem;
+    /* 106px */
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.login-container .login .login-details .email-container label {
+    color: #404040;
+    font-size: 2.4rem;
+    /* 24px */
+    font-weight: 600;
+}
+
+.login-container .login .login-details .email-container .email-input {
+    width: 42rem;
+    height: 6rem;
+    /* 60px */
+    display: flex;
+    align-items: center;
+    border-radius: 1rem;
+    border: 0.1rem solid #C7C7C7;
+    background-color: #FFFFFF;
+}
+
+.login-container .login .login-details .email-container .email-input .signin-icon {
+    color: #163D5C;
+    font-size: 2.5rem;
+    /* 25px */
+    margin-left: 1rem;
+    /* 10px */
+}
+
+.login-container .login .login-details .email-container .email-input input {
+    width: 35rem;
+    height: 2.5rem;
+    /* 25px */
+    color: #163D5C;
+    caret-color: #163D5C;
+    font-weight: 500;
+    font-size: 1.8rem;
+    /* 18px */
+    outline: none;
+    margin-left: 2rem;
+    /* 20px */
+}
+
+.login-container .login .login-details .email-container .email-input input::placeholder {
+    color: #C7C7C7;
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+/* Password container (xuddi shunday px->rem) */
+.login-container .login .login-details .password-container {
+    width: 42rem;
+    height: 10.6rem;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.login-container .login .login-details .password-container label {
+    color: #404040;
+    font-size: 2.4rem;
+    font-weight: 600;
+}
+
+.login-container .login .login-details .password-container .password-input {
+    width: 42rem;
+    height: 6rem;
+    display: flex;
+    align-items: center;
+    border-radius: 1rem;
+    border: 0.1rem solid #C7C7C7;
+    background-color: #FFFFFF;
+}
+
+.login-container .login .login-details .password-container .password-input .signin-icon {
+    color: #163D5C;
+    font-size: 2.5rem;
+    margin-left: 1rem;
+}
+
+.login-container .login .login-details .password-container .password-input .signin-icon2 {
+    color: #C7C7C7;
+    font-size: 2rem;
+    /* 20px */
+    cursor: pointer;
+    margin-left: 1rem;
+}
+
+.login-container .login .login-details .password-container .password-input input {
+    width: 32rem;
+    height: 2.5rem;
+    color: #163D5C;
+    caret-color: #163D5C;
+    font-weight: 500;
+    font-size: 1.8rem;
+    outline: none;
+    margin-left: 2rem;
+}
+
+.login-container .login .login-details .password-container .password-input input::placeholder {
+    color: #C7C7C7;
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+/* Remember / Forgot */
+.login-container .login .login-details .remember-forgot {
+    width: 42rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.login-container .login .login-details .remember-forgot .remember-me {
+    width: 12rem;
+    height: 1.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.login-container .login .login-details .remember-forgot .remember-me p {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: #404040;
+}
+
+.login-container .login .login-details .remember-forgot .remember-me input {
+    width: 1.4rem;
+    height: 1.4rem;
+    margin-top: 0.2rem;
+}
+
+.login-container .login .login-details .remember-forgot .remember-me input:checked {
+    accent-color: #163D5C;
+}
+
+.login-container .login .login-details .remember-forgot .forgot-password {
+    color: #163D5C;
+    font-weight: 500;
+    font-size: 1.4rem;
+    text-decoration: underline;
+}
+
+.login-container .login .login-details .remember-forgot .forgot-password:hover {
+    color: #C7C7C7;
+}
+
+/* Register */
+.login-container .login .login-details .register {
+    width: 25.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-container .login .login-details .register p {
+    color: #343C44;
+    font-weight: 500;
+    font-size: 1.8rem;
+}
+
+.login-container .login .login-details .register p span {
+    color: #163D5C;
+    font-weight: 600;
+    font-size: 1.8rem;
+}
+
+
+/* Responsive */
+@media (max-width: 1300px) {
+    html {
+        font-size: 9px;
+    }
+}
+
+@media (max-width: 1000px) {
+    html {
+        font-size: 8px;
+    }
+}
+
+@media (max-width: 550px) {
+    html {
+        font-size: 7px;
+    }
+
+    .login-container .login .login-details button {
+        width: 42rem;
+    }
+}
+
+@media (max-width: 370px) {
+    html {
+        font-size: 6px;
+    }
+}
+
+@media (max-width: 320px) {
+    html {
+        font-size: 5px;
+    }
+}
+
+@media (max-width: 260px) {
+    html {
+        font-size: 4px;
+    }
+}
+
+@media (max-width: 200px) {
+    html {
+        font-size: 3px;
+    }
+}
