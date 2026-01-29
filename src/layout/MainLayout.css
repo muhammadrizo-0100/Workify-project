@@ -1,15 +1,52 @@
-/* MainLayout.css */
 .layout-wrapper {
     display: flex;
     min-height: 100vh;
-    background-color: E5E5E5;
+    background-color: #E5E5E5;
     padding: 50px 150px;
     gap: 24px;
-    overflow: hidden;
+    overflow-x: hidden; 
     box-sizing: border-box;
 }
 
 .content-area {
     flex: 1;
-    overflow-y: auto;
+}
+
+
+@media (max-width: 1200px) {
+    .layout-wrapper {
+        padding: 40px 60px; 
+        gap: 20px;
+    }
+}
+
+
+@media (max-width: 992px) {
+    .layout-wrapper {
+        padding: 30px 40px;
+        gap: 15px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .layout-wrapper {
+        padding: 20px 20px;
+        gap: 10px;
+    }
+
+    .content-area {
+        overflow-y: visible;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .layout-wrapper {
+        padding: 10px 20px; 
+    }
+
+    .content-area {
+        width: 100%;
+    }
 }

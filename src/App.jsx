@@ -12,7 +12,7 @@ import Jobs from './pages/jobs/Jobs.jsx';
 import Jobs2 from './pages/jobs2/jobs2.jsx';
 import Home from './pages/home/Home.jsx';
 import Dashboard from './pages/dashboard/dashboard.jsx';
-import myProfile from './pages/myProfile/myProfile';
+import MyProfile from './pages/myProfile/CompanyProfile.jsx';
 import Contacts from './pages/contacts/Contacts.jsx';
 import FAQ from './pages/FAQ/FAQ.jsx';
 
@@ -28,7 +28,7 @@ function App() {
       </Route>
       <Route element={<MainLayout />}>
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/myProfile" element={<myCompany />} />
+        <Route path="/myProfile" element={<MyProfile />} />
         <Route path="/jobs2" element={<Jobs2 />} />
         <Route path="/talents2" element={<Talents2 />} />
         <Route path="/FAQ" element={<FAQ />} />

@@ -1,4 +1,4 @@
-const API_BASE_URL = 'https://workifybackend-production.up.railway.app/api';
+const API_BASE_URL = 'https://workifybackend-production.up.railway.app/api-docs';
 
 // Umumiy fetch funksiyasi
 const fetchAPI = async (endpoint, options = {}) => {
