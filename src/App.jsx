@@ -13,7 +13,6 @@ import ForgotPassword1 from './pages/ForgotPassword1';
 import ForgotPassword2 from './pages/ForgotPassword2';
 import ForgotPassword3 from './pages/ForgotPassword3';
 import ForgotPassword4 from './pages/ForgotPassword4';
-import SignIn from "./pages/SignIn.jsx";
 
 function App() {
   return (
@@ -39,7 +38,6 @@ function App() {
           <Route path="/talents" element={<Talents />} />
           <Route path="/jobs" element={<Jobs />} />
           <Route path="/signup" element={<SignUpPage />} />
-          <Route path="/signin" element={<SignIn />} /> 
           <Route path="/forgot-password-1" element={<ForgotPassword1 />} />
           <Route path="/forgot-password-2" element={<ForgotPassword2 />} />
           <Route path="/forgot-password-3" element={<ForgotPassword3 />} />

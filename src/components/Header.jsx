@@ -40,20 +40,18 @@ function Header() {
         {/* RIGHT SIDE (DESKTOP) */}
         <div className="hidden lg:flex items-center gap-8">
           <div className="flex items-center gap-4">
-            {/* TO'G'RILANGAN SIGN IN TUGMASI */}
-            <NavLink
-              to="/signin"
-              className={({ isActive }) => `w-[155px] h-[52px] flex items-center justify-center border-2 border-[#163D5C] rounded-xl font-bold text-[18px] transition-all duration-300 hover:-translate-y-1 active:scale-95 cursor-pointer ${isActive ? "bg-[#163D5C] text-white" : "bg-white text-[#163D5C]"}`}
-            >
-              Sign in
-            </NavLink>
+            {/* O'ZGARTIRILGAN: Sign in tugmasi Link bilan o'ralgan */}
+            <Link to="/signin">
+              <button className="w-[155px] h-[52px] border-2 border-[#163D5C] rounded-xl font-bold text-[18px] text-[#163D5C] bg-white transition-all duration-300 hover:-translate-y-1 active:scale-95 cursor-pointer">
+                Sign in
+              </button>
+            </Link>
 
-            <NavLink
-              to="/signup"
-              className={({ isActive }) => `w-[155px] h-[52px] flex items-center justify-center border-2 border-[#163D5C] rounded-xl font-bold text-[18px] transition-all duration-300 hover:-translate-y-1 hover:shadow-lg active:scale-95 cursor-pointer ${isActive ? "bg-white text-[#163D5C]" : "bg-[#163D5C] text-white"}`}
-            >
-              Join Now
-            </NavLink>
+            <Link to="/signup">
+              <button className="w-[155px] h-[52px] bg-[#163D5C] border-2 border-[#163D5C] rounded-xl font-bold text-[18px] text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg active:scale-95 cursor-pointer">
+                Join Now
+              </button>
+            </Link>
           </div>
 
           {/* TIL DROPDOWN */}
@@ -78,40 +76,25 @@ function Header() {
         <button className="lg:hidden text-[35px] text-[#163D5C] z-[60]" onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? <HiX /> : <HiMenuAlt3 />}
         </button>
-
-        {/* MOBILE MENU - TO'G'RILANGAN */}
+        {/* MOBILE MENU - TO'LIQ EKRAN QILINDI */}
         <div className={`lg:hidden fixed top-[90px] left-0 w-full h-[calc(100vh-90px)] bg-white shadow-2xl transition-all duration-300 z-50 flex flex-col items-center gap-6 py-8 overflow-y-auto ${isOpen ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-full pointer-events-none"}`}>
-          <NavLink
-            to="/talents"
-            onClick={() => setIsOpen(false)}
-            className={({ isActive }) => `text-[19px] font-bold py-2 ${isActive ? "text-[#163D5C]" : "text-gray-600"}`}
-          >
-            Talents
-          </NavLink>
-          <NavLink
-            to="/jobs"
-            onClick={() => setIsOpen(false)}
-            className={({ isActive }) => `text-[19px] font-bold py-2 ${isActive ? "text-[#163D5C]" : "text-gray-600"}`}
-          >
-            Jobs
-          </NavLink>
+          <NavLink to="/talents" onClick={() => setIsOpen(false)} className="text-[19px] font-bold text-[#163D5C] py-2">Talents</NavLink>
+          <NavLink to="/jobs" onClick={() => setIsOpen(false)} className="text-[19px] font-bold text-[#163D5C] py-2">Jobs</NavLink>
 
           <div className="w-[85%] flex flex-col gap-4 mt-4">
-            <NavLink
-              to="/signin"
-              onClick={() => setIsOpen(false)}
-              className={({ isActive }) => `w-full py-3 text-center border-2 rounded-xl font-bold transition-colors duration-300 ${isActive ? "bg-[#163D5C] text-white border-[#163D5C]" : "border-[#163D5C] text-[#163D5C] hover:bg-[#163D5C] hover:text-white"}`}
-            >
-              Sign in
-            </NavLink>
+            <Link to="/signin" onClick={() => setIsOpen(false)} className="w-full">
+              <button className="w-full py-3 border-2 border-[#163D5C] rounded-xl font-bold text-[#163D5C] 
+                  hover:bg-[#163D5C] hover:text-white hover:border-white
+                  transition-colors duration-300">
+                Sign in
+              </button>
+            </Link>
 
-            <NavLink
-              to="/signup"
-              onClick={() => setIsOpen(false)}
-              className={({ isActive }) => `w-full py-3 text-center rounded-xl font-bold transition-all active:scale-95 ${isActive ? "bg-white text-[#163D5C] border-2 border-[#163D5C]" : "bg-[#163D5C] text-white hover:bg-[#0f2d44]"}`}
-            >
-              Join Now
-            </NavLink>
+            <Link to="/signup" onClick={() => setIsOpen(false)} className="w-full">
+              <button className="w-full py-3 bg-[#163D5C] text-white rounded-xl font-bold transition-all active:scale-95 hover:bg-[#0f2d44]">
+                Join Now
+              </button>
+            </Link>
           </div>
         </div>
       </div>
