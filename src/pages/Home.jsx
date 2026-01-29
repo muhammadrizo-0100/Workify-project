@@ -1,8 +1,6 @@
 import "./Home.css";
-
 import Header from "../components/Header.jsx";
 import Footer from "../components/Footer.jsx";
-
 import { MdWork } from "react-icons/md";
 import { BsPersonPlusFill } from "react-icons/bs";
 import { IoMdChatboxes } from "react-icons/io";
@@ -24,8 +22,10 @@ function Home() {
                             </p>
                         </div>
                         <div className="search-wrapper">
-                            <label className="label1">Hire a talent</label>
-                            <label className="label2">Find a job</label>
+                            <div className="search-labels">
+                                <label className="label1">Hire a talent</label>
+                                <label className="label2">Find a job</label>
+                            </div>
                             <div className="search-box">
                                 <div className="input1">
                                     <MdWork className="icon" />
@@ -34,7 +34,7 @@ function Home() {
                                     />
                                 </div>
 
-                                <hr className="home-hr" />
+                                <div className="input-separator"></div>
 
                                 <div className="input2">
                                     <MdWork className="icon" />
@@ -61,7 +61,7 @@ function Home() {
                     </div>
                     <div className="box box3">
                         <IoMdChatboxes className="box-icon" />
-                        <div className="p1">All rofessionals need some help</div>
+                        <div className="p1">All professionals need some help</div>
                         <div className="p2">As a pro recruiter, you need various skills to hire <br /> a great talent.</div>
                     </div>
                     <div className="box box4">
