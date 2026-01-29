@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './CompanyProfile.css';
 import fonts1 from "../../assets/Group 8768.svg";
-import { fetchAPI } from '../../service/api';
+import { companyAPI } from '../../service/api'; 
+import image from "../../assets/image 389.svg"
 
 // 🔔 Toastify
 import { ToastContainer, toast } from 'react-toastify';
@@ -9,32 +10,59 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const CompanyProfile = () => {
   const [companyData, setCompanyData] = useState({
-    name: "TecCells LLC",
-    industry: "Computer Software Company",
-    since: "2015",
-    city: "Tashkent",
-    country: "Uzbekistan",
-    phone: "+99894-498-65-65",
-    email: "TechCells@mail.ru",
-    telegram: "@TechCells",
-    website: "www.TechCells.com",
+    id: "",
+    name: "",
+    industry: "",
+    since: "",
+    city: "",
+    country: "",
+    phone: "",
+    email: "",
+    telegram: "",
+    website: "",
     about: ""
   });
 
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [tempData, setTempData] = useState({});
+  const [tempData, setTempData] = useState({
+    name: "",
+    industry: "",
+    since: "",
+    city: "",
+    country: "",
+    phone: "",
+    email: "",
+    website: "",
+    about: ""
+  });
   const [loading, setLoading] = useState(true);
+  const [companyId, setCompanyId] = useState(null);
 
   useEffect(() => {
     const loadData = async () => {
       setLoading(true);
       try {
-        const result = await fetchAPI('/companies/1');
+        const result = await companyAPI.getCompany();
+
         if (result.success && result.data) {
-          setCompanyData(result.data);
+          if (Array.isArray(result.data) && result.data.length > 0) {
+            const company = result.data[0];
+            setCompanyData(company);
+            setCompanyId(company.id);
+          }
+          else if (typeof result.data === 'object') {
+            setCompanyData(result.data);
+            setCompanyId(result.data.id);
+          }
+          else {
+            toast.info("Sizda hali kompaniya profili mavjud emas");
+          }
+        } else {
+          toast.error("Ma'lumot yuklanmadi: " + (result.error || "Noma'lum xato"));
         }
       } catch (error) {
         console.error("Data fetch error", error);
+        toast.error("Server bilan bog'lanishda xatolik");
       } finally {
         setLoading(false);
       }
@@ -48,18 +76,67 @@ const CompanyProfile = () => {
   };
 
   const handleSave = async () => {
-    const result = await fetchAPI('/companies/1', {
-      method: 'PUT',
-      body: JSON.stringify(tempData),
-    });
-
-    if (result.success) {
-      setCompanyData(tempData);
-      setIsModalOpen(false);
-      toast.success("Muvaffaqiyatli saqlandi!");
-    } else {
-      toast.error("Xatolik yuz berdi!");
+    if (!companyId) {
+      toast.error("Kompaniya ID topilmadi");
+      return;
     }
+
+    try {
+      // Barcha kerakli fieldlarni yuborish
+      const updateData = {
+        name: tempData.name || companyData.name,
+        industry: tempData.industry || companyData.industry,
+        since: tempData.since || companyData.since,
+        city: tempData.city || companyData.city,
+        country: tempData.country || companyData.country,
+        phone: tempData.phone || companyData.phone,
+        email: tempData.email || companyData.email,
+        website: tempData.website || companyData.website,
+        about: tempData.about || companyData.about,
+        telegram: tempData.telegram || companyData.telegram
+      };
+
+      const result = await companyAPI.updateCompany(companyId, updateData);
+
+      if (result.success) {
+        // Yangilangan ma'lumotlarni state'ga o'rnatish
+        setCompanyData(prev => ({
+          ...prev,
+          ...updateData
+        }));
+        
+        toast.success("Muvaffaqiyatli saqlandi!", {
+          position: "top-right",
+          autoClose: 3000,
+        });
+        setIsModalOpen(false);
+      } else {
+        toast.error("Xatolik yuz berdi: " + (result.error || "Noma'lum xato"), {
+          position: "top-right",
+          autoClose: 4000,
+        });
+      }
+    } catch (error) {
+      console.error("Save error", error);
+      toast.error("Saqlashda xatolik yuz berdi");
+    }
+  };
+
+  const openEditModal = () => {
+    // Joriy ma'lumotlarni to'liq nusxalash
+    setTempData({
+      name: companyData.name || "",
+      industry: companyData.industry || "",
+      since: companyData.since || "",
+      city: companyData.city || "",
+      country: companyData.country || "",
+      phone: companyData.phone || "",
+      email: companyData.email || "",
+      website: companyData.website || "",
+      about: companyData.about || "",
+      telegram: companyData.telegram || ""
+    });
+    setIsModalOpen(true);
   };
 
   if (loading) return <div className="loader">Yuklanmoqda...</div>;
@@ -74,25 +151,23 @@ const CompanyProfile = () => {
         </div>
         <button className="post-job-btn">Post a Job</button>
       </div>
-
       <div className="profile-content">
-        {/* 1-rasmga mos: Profil kartasi */}
+        {/* Left Card - Company Profile */}
         <div className="left-card">
-          <div className="edit-icon" onClick={() => { setTempData(companyData); setIsModalOpen(true); }}>
+          <div className="edit-icon" onClick={openEditModal}>
             ✎
           </div>
 
           <div className="profile-main-info">
             <div className="logo-container">
-               {/* Logo ostidagi kamera ikonkasi uchun badge */}
               <img src={fonts1} alt="Logo" />
             </div>
-            
+
             <h2 className="company-title">
-              {companyData.name} <span className="verified">✔</span>
+              {companyData.name} <span className="verified"><img src={image} alt="" /></span>
             </h2>
             <p className="industry">{companyData.industry}</p>
-            
+
             <div className="rating">
               <span className="stars">★★★★☆</span>
               <span className="rating-text">(4.0) | 1K reviews</span>
@@ -106,12 +181,11 @@ const CompanyProfile = () => {
             <div className="info-item"><span>Country:</span> <strong>{companyData.country}</strong></div>
             <div className="info-item"><span>Phone:</span> <strong>{companyData.phone}</strong></div>
             <div className="info-item"><span>Email:</span> <strong>{companyData.email}</strong></div>
-            <div className="info-item"><span>Telegram:</span> <strong>{companyData.telegram}</strong></div>
             <div className="info-item"><span>Website:</span> <strong>{companyData.website}</strong></div>
           </div>
         </div>
 
-        {/* O'ng taraf (Statistika va About) */}
+        {/* Right Side - Statistics and About */}
         <div className="right-sections">
           <div className="stats-card">
             <h3>Statistics</h3>
@@ -127,7 +201,7 @@ const CompanyProfile = () => {
           <div className="about-card">
             <div className="card-header">
               <h3>About company</h3>
-              <span className="edit-icon" onClick={() => { setTempData(companyData); setIsModalOpen(true); }}>✎</span>
+              <span className="edit-icon" onClick={openEditModal}>✎</span>
             </div>
             <p className={companyData.about ? "" : "placeholder-text"}>
               {companyData.about || "Please tell us something about your company..."}
@@ -136,46 +210,108 @@ const CompanyProfile = () => {
         </div>
       </div>
 
-      {/* 2-rasmga mos: Modal oynasi */}
+      {/* Edit Modal */}
       {isModalOpen && (
         <div className="modal-overlay">
           <div className="modal-content">
             <button className="close-btn" onClick={() => setIsModalOpen(false)}>&times;</button>
             <h2 className="modal-title">Edit Company details</h2>
-            
+
             <div className="form-grid">
               <div className="input-group">
                 <label>Company name</label>
-                <input type="text" name="name" value={tempData.name || ''} onChange={handleChange} />
+                <input
+                  type="text"
+                  name="name"
+                  value={tempData.name || ''}
+                  onChange={handleChange}
+                  placeholder="Enter company name"
+                />
               </div>
+
               <div className="input-group">
                 <label>Phone</label>
-                <input type="text" name="phone" value={tempData.phone || ''} onChange={handleChange} />
+                <input
+                  type="text"
+                  name="phone"
+                  value={tempData.phone || ''}
+                  onChange={handleChange}
+                  placeholder="Enter phone number"
+                />
               </div>
+
               <div className="input-group">
                 <label>Website</label>
-                <input type="text" name="website" value={tempData.website || ''} onChange={handleChange} />
+                <input
+                  type="text"
+                  name="website"
+                  value={tempData.website || ''}
+                  onChange={handleChange}
+                  placeholder="www.example.com"
+                />
               </div>
+
               <div className="input-group">
                 <label>Industry</label>
-                <input type="text" name="industry" value={tempData.industry || ''} onChange={handleChange} />
+                <input
+                  type="text"
+                  name="industry"
+                  value={tempData.industry || ''}
+                  onChange={handleChange}
+                  placeholder="Enter industry"
+                />
               </div>
+
               <div className="input-group">
                 <label>Country</label>
-                <input type="text" name="country" value={tempData.country || ''} onChange={handleChange} />
+                <input
+                  type="text"
+                  name="country"
+                  value={tempData.country || ''}
+                  onChange={handleChange}
+                  placeholder="Enter country"
+                />
               </div>
+
               <div className="input-group">
                 <label>City</label>
-                <input type="text" name="city" value={tempData.city || ''} onChange={handleChange} />
+                <input
+                  type="text"
+                  name="city"
+                  value={tempData.city || ''}
+                  onChange={handleChange}
+                  placeholder="Enter city"
+                />
               </div>
-              
+
+
+
               <div className="input-group full-width">
-                <label>About</label>
-                <textarea name="about" value={tempData.about || ''} onChange={handleChange} />
+                <label>About Company</label>
+                <textarea
+                  name="about"
+                  value={tempData.about || ''}
+                  onChange={handleChange}
+                  placeholder="Tell us about your company..."
+                  rows="4"
+                />
               </div>
             </div>
-            
-            <button className="save-btn" onClick={handleSave}>Save</button>
+
+            <div className="modal-actions">
+              <button
+                className="cancel-btn"
+                onClick={() => setIsModalOpen(false)}
+              >
+                Cancel
+              </button>
+              <button
+                className="save-btn"
+                onClick={handleSave}
+              >
+                Save Changes
+              </button>
+            </div>
           </div>
         </div>
       )}

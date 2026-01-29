@@ -1,30 +1,69 @@
-const API_BASE_URL = 'https://workifybackend-production.up.railway.app/api-docs';
+// service/api.js
+const API_BASE_URL = 'https://workifybackend-production.up.railway.app/api';
 
-// Umumiy fetch funksiyasi
+// Asosiy fetch funksiyasi
 const fetchAPI = async (endpoint, options = {}) => {
     try {
-        const response = await fetch(`${API_BASE_URL}${endpoint}`, {
-            headers: {
-                'Content-Type': 'application/json',
-                ...options.headers,
-            },
-            ...options,
-        });
+        const token = localStorage.getItem('token');
+        const headers = {
+            'Content-Type': 'application/json',
+            ...(token && { 'Authorization': `Bearer ${token}` }),
+            ...options.headers,
+        };
 
-        if (!response.ok) {
-            throw new Error(`API xatosi: ${response.status} - ${response.statusText}`);
+        const config = {
+            headers,
+            ...options,
+        };
+
+        // Agar body bo'lsa, JSON.stringify qilamiz
+        if (options.body && typeof options.body !== 'string') {
+            config.body = JSON.stringify(options.body);
         }
 
-        const data = await response.json();
-        return { success: true, data };
+        const response = await fetch(`${API_BASE_URL}${endpoint}`, config);
+
+        if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(`HTTP Error ${response.status}: ${errorText}`);
+        }
+
+        const contentType = response.headers.get('content-type');
+        if (contentType && contentType.includes('application/json')) {
+            const data = await response.json();
+            return { success: true, data };
+        }
+
+        return { success: true, data: null };
     } catch (error) {
-        console.error('API so\'rovi xatosi:', error);
+        console.error('API xatosi:', error);
         return {
             success: false,
             error: error.message,
-            data: []
+            data: null
         };
     }
 };
 
-export { fetchAPI };
+// Kompaniya API funksiyalari
+const companyAPI = {
+    // GET /api/company - barcha kompaniyalarni olish (yoki user kompaniyasini)
+    getCompany: () => fetchAPI('/company'),
+
+    // GET /api/company/{id} - ma'lum bir kompaniyani olish
+    getCompanyById: (id) => fetchAPI(`/company/${id}`),
+
+    // PUT /api/company/{id} - kompaniyani yangilash
+    updateCompany: (id, data) => fetchAPI(`/company/${id}`, {
+        method: 'PUT',
+        body: data
+    }),
+
+    // POST /api/company - yangi kompaniya yaratish
+    createCompany: (data) => fetchAPI('/company', {
+        method: 'POST',
+        body: data
+    })
+};
+
+export { fetchAPI, companyAPI };
