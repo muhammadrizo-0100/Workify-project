@@ -152,42 +152,42 @@ function Jobs() {
         };
     };
 
-    const getMockJobs = () => {
-        return [
-            {
-                id: '1',
-                companyName: 'LeverX',
-                companyType: 'Software',
-                rating: 4.0,
-                reviews: '1K',
-                jobTitle: 'Backend Developer',
-                salaryRange: '$500-1,200',
-                description: 'We are looking for a skilled backend developer',
-                skills: ["Node.js", "SQL", "MongoDB", "Express.js", "REST API", "Git", "Docker", "AWS"],
-                location: 'Tashkent, Uzbekistan',
-                jobType: 'Full-time',
-                createdAt: '2 days ago',
-                workplaceType: 'Remote',
-                specialty: 'Node.js'
-            },
-            {
-                id: '2',
-                companyName: 'ITpark',
-                companyType: 'Technology',
-                rating: 4.2,
-                reviews: '2.5K',
-                jobTitle: 'Frontend Developer',
-                salaryRange: '$600-1,500',
-                description: 'We are looking for an experienced frontend developer with React skills',
-                skills: ["React", "JavaScript", "TypeScript", "CSS", "HTML5", "Redux", "Webpack", "SASS", "Bootstrap"],
-                location: 'Namangan, Uzbekistan',
-                jobType: 'Full-time',
-                createdAt: '1 week ago',
-                workplaceType: 'Office',
-                specialty: 'React.js'
-            }
-        ];
-    };
+    // const getMockJobs = () => {
+    //     return [
+    //         {
+    //             id: '1',
+    //             companyName: 'LeverX',
+    //             companyType: 'Software',
+    //             rating: 4.0,
+    //             reviews: '1K',
+    //             jobTitle: 'Backend Developer',
+    //             salaryRange: '$500-1,200',
+    //             description: 'We are looking for a skilled backend developer',
+    //             skills: ["Node.js", "SQL", "MongoDB", "Express.js", "REST API", "Git", "Docker", "AWS"],
+    //             location: 'Tashkent, Uzbekistan',
+    //             jobType: 'Full-time',
+    //             createdAt: '2 days ago',
+    //             workplaceType: 'Remote',
+    //             specialty: 'Node.js'
+    //         },
+    //         {
+    //             id: '2',
+    //             companyName: 'ITpark',
+    //             companyType: 'Technology',
+    //             rating: 4.2,
+    //             reviews: '2.5K',
+    //             jobTitle: 'Frontend Developer',
+    //             salaryRange: '$600-1,500',
+    //             description: 'We are looking for an experienced frontend developer with React skills',
+    //             skills: ["React", "JavaScript", "TypeScript", "CSS", "HTML5", "Redux", "Webpack", "SASS", "Bootstrap"],
+    //             location: 'Namangan, Uzbekistan',
+    //             jobType: 'Full-time',
+    //             createdAt: '1 week ago',
+    //             workplaceType: 'Office',
+    //             specialty: 'React.js'
+    //         }
+    //     ];
+    // };
 
     const renderStars = (rating) => {
         const stars = [];

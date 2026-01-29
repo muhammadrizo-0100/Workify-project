@@ -119,21 +119,21 @@ function Talents() {
     };
 
     // Mock ma'lumotlar - rasmdagiga o'xshash
-    const getMockTalents = () => {
-        return [
-            {
-                id: 1,
-                firstName: "",
-                lastName: "Ibrokhimov",
-                role: "Designer",
-                city: "Tashkent, Uzbekistan",
-                price: 1250,
-                description: "fact that a reader will be distracted by the readable content of a page when lo-sum is that it has a more-or-less normal distribution of letters, as opposed to usi",
-                skills: ["be Photoshop (1 year)", "Adobe Photoshop (1 year)", "Adobe XD (1 year)"],
-                image: null
-            }
-        ];
-    };
+    // const getMockTalents = () => {
+    //     return [
+    //         {
+    //             id: 1,
+    //             firstName: "",
+    //             lastName: "Ibrokhimov",
+    //             role: "Designer",
+    //             city: "Tashkent, Uzbekistan",
+    //             price: 1250,
+    //             description: "fact that a reader will be distracted by the readable content of a page when lo-sum is that it has a more-or-less normal distribution of letters, as opposed to usi",
+    //             skills: ["be Photoshop (1 year)", "Adobe Photoshop (1 year)", "Adobe XD (1 year)"],
+    //             image: null
+    //         }
+    //     ];
+    // };
 
     // Format number with dots as thousand separators (1.250.00)
     const formatPrice = (price) => {

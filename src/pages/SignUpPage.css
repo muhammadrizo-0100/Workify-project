@@ -223,12 +223,12 @@
 }
 
 .next-btn {
-  background-color: #3b82f6;
+  background-color: #163D5C;
   color: white;
 }
 
 .next-btn:hover:not(:disabled) {
-  background-color: #2563eb;
+  background-color: #25417d;
 }
 
 .next-btn:disabled {
