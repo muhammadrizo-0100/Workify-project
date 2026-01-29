@@ -8,6 +8,7 @@ import Layout from "./components/Layout.jsx";
 import Talents from "./pages/Talent";
 import Jobs from "./pages/Jobs";
 import Home from "./pages/Home";
+import SignUpPage from "./pages/SignUpPage.jsx";
 import SignUpPage from "./pages/SignUpPage";
 import ForgotPassword1 from './pages/ForgotPassword1';
 import ForgotPassword2 from './pages/ForgotPassword2';
