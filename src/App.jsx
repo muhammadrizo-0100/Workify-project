@@ -4,7 +4,7 @@ import Layout from "./components/Layout.jsx";
 import Talents from "./pages/Talent";
 import Jobs from "./pages/Jobs";
 import Home from "./pages/Home";
-import SignUpPage from "./pages/SignUpPage";
+import SignUpPage from "./pages/SignUpPage.jsx";
 
 function App() {
   return (
