@@ -40,9 +40,12 @@ function Header() {
         {/* RIGHT SIDE (DESKTOP) */}
         <div className="hidden lg:flex items-center gap-8">
           <div className="flex items-center gap-4">
-            <button className="w-[155px] h-[52px] border-2 border-[#163D5C] rounded-xl font-bold text-[18px] text-[#163D5C] bg-white transition-all duration-300 hover:-translate-y-1 active:scale-95 cursor-pointer">
-              Sign in
-            </button>
+            {/* O'ZGARTIRILGAN: Sign in tugmasi Link bilan o'ralgan */}
+            <Link to="/signin">
+              <button className="w-[155px] h-[52px] border-2 border-[#163D5C] rounded-xl font-bold text-[18px] text-[#163D5C] bg-white transition-all duration-300 hover:-translate-y-1 active:scale-95 cursor-pointer">
+                Sign in
+              </button>
+            </Link>
 
             <Link to="/signup">
               <button className="w-[155px] h-[52px] bg-[#163D5C] border-2 border-[#163D5C] rounded-xl font-bold text-[18px] text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg active:scale-95 cursor-pointer">
@@ -72,7 +75,6 @@ function Header() {
         <button className="lg:hidden text-[35px] text-[#163D5C] z-[60]" onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? <HiX /> : <HiMenuAlt3 />}
         </button>
-
         {/* MOBILE MENU - TO'LIQ EKRAN QILINDI */}
         <div className={`lg:hidden fixed top-[90px] left-0 w-full h-[calc(100vh-90px)] bg-white shadow-2xl transition-all duration-300 z-50 flex flex-col items-center gap-6 py-8 overflow-y-auto ${isOpen ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-full pointer-events-none"}`}>
           <NavLink to="/talents" onClick={() => setIsOpen(false)} className="text-[19px] font-bold text-[#163D5C] py-2">Talents</NavLink>

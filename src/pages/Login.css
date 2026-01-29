@@ -97,7 +97,7 @@
     color: #163D5C;
     font-size: 2.5rem;
     /* 25px */
-    margin-left: 1rem;
+    margin-left: -3.3rem;
     /* 10px */
 }
 
@@ -111,7 +111,7 @@
     font-size: 1.8rem;
     /* 18px */
     outline: none;
-    margin-left: 2rem;
+    margin-left: 2.1rem;
     /* 20px */
 }
 
@@ -149,7 +149,6 @@
 .login-container .login .login-details .password-container .password-input .signin-icon {
     color: #163D5C;
     font-size: 2.5rem;
-    margin-left: 1rem;
 }
 
 .login-container .login .login-details .password-container .password-input .signin-icon2 {

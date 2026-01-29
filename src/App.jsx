@@ -39,6 +39,7 @@ function App() {
           <Route path="/talents" element={<Talents />} />
           <Route path="/jobs" element={<Jobs />} />
           <Route path="/signup" element={<SignUpPage />} />
+          <Route path="/signin" element={<SignIn />} />
           <Route path="/forgot-password-1" element={<ForgotPassword1 />} />
           <Route path="/forgot-password-2" element={<ForgotPassword2 />} />
           <Route path="/forgot-password-3" element={<ForgotPassword3 />} />
@@ -48,14 +49,6 @@ function App() {
         <Route path="*" element={<Navigate to="/home" />} />
       </Routes>
     </div>
-      <Route element={<Layout />}>
-        <Route path="/talents" element={<Talents />} />
-        <Route path="/jobs" element={<Jobs />} />
-        <Route path="/signup" element={<SignUpPage />} />
-        <Route path="/signin" element={<SignIn />} />
-      </Route>
-
-    </Routes>
   );
 }
 
